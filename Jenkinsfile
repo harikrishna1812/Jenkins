@@ -1,26 +1,11 @@
 pipeline {
-    agent{
-        label 'Agent2'
-    }
+    agent any
+
     stages {
-        stage('Stage 1') {
+        stage('Build') {
             steps {
-                echo 'Hello world!' 
-            }
-        }
-        stage('Stage 2') {
-            steps {
-                echo 'this is second stage!' 
-            }
-        }
-        stage('Stage 3') {
-            steps {
-                echo 'This is third stage!' 
-            }
-        }
-        stage('Stage 4') {
-            steps {
-                echo 'This is third stage!' 
+                sh 'make' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
     }
