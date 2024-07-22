@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        timeout(time: 5, unit: 'MINS') 
+        timeout(time: 5, unit: 'MINUTES') 
         disableRestartFromStage()
     }
     parameters {
